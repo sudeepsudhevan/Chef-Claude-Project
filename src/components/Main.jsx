@@ -7,9 +7,7 @@ function Main() {
     return <li key={ingredient}>{ingredient}</li>
   })
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget)
+  function addIngredient(formData) {
     const newIngredient = formData.get("ingredient")
 
     setIngredients(
@@ -22,7 +20,7 @@ function Main() {
 
   return (
     <main className='main'>
-      <form className='add-ingredient-form' onSubmit={handleSubmit}>
+      <form className='add-ingredient-form' action={addIngredient}>
         <input
           aria-label='Add ingredient'
           type="text"
